@@ -1,0 +1,37 @@
+﻿@using S2_FirstMVC.Web.Areas.Marketing.Models
+@{ 
+    var products = ViewData["ProductList"] as IEnumerable<Product>;
+}
+
+
+<h1>Products With View Model:  @ViewData["Titulo"] </h1>
+
+
+<table id="tbProducts" class="table table-dark">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Title</th>
+            <th>Marker</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in products)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Description</td>
+                <td>
+                    <a href="@item.Url" target="_blank">@item.Title</a>
+                </td>
+                <td>@item.Maker</td>
+                <td>
+                    <img src="@item.Img" style="height:40px;width:40px" />
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
